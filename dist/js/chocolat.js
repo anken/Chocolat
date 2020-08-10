@@ -35,7 +35,15 @@
       srcset,
       sizes
     }) {
-      const image = new Image();
+      // allow mp4 videos in the slideshow
+      const image = src.substr(-4) == '.mp4' ? document.createElement('video') : new Image();
+
+      if (src.substr(-4) == '.mp4') {
+        image.autoplay = true;
+        image.height = 800;
+        image.width = 1200;
+      }
+
       image.src = src;
 
       if (srcset) {

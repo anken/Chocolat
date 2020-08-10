@@ -35,14 +35,12 @@ export function transitionAsPromise(triggeringFunc, el) {
 }
 
 export function loadImage({ src, srcset, sizes }) {
-    
     // allow mp4 videos in the slideshow
-    const image = (src.substr(-4) == ".mp4") ? document.createElement('video') : new Image();
-    image.src = src;
-    if (src.substr(-4) == ".mp4") {
-        image.autoplay = true;
-        image.height = 800;
-        image.width = 1200;      
+    const image = src.substr(-4) == '.mp4' ? document.createElement('video') : new Image()
+    if (src.substr(-4) == '.mp4') {
+        image.autoplay = true
+        image.height = 800
+        image.width = 1200
     }
 
     image.src = src
